@@ -13,6 +13,9 @@ const Logo = ({ variant = "dark", className }: LogoProps) => {
         variant === "light" ? "text-white" : "text-adr-900"
       )}>
         ADR <span className="font-normal">TRAVEL</span>
+        <span className={cn("text-sm ml-2 italic",
+          variant === "light" ? "text-white/80" : "text-adr-600"
+        )}>Madagascar</span>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ export interface Circuit {
   description: string;
   longDescription: string;
   image: string;
-  price: number;
+  price: number; // Prix en Ariary
   duration: number;
   featured: boolean;
   destinations: string[];

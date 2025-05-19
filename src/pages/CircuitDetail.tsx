@@ -3,10 +3,12 @@ import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import QuoteCalculator from "@/components/QuoteCalculator";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar } from "lucide-react";
 import { circuits } from "@/data/circuits";
 import { toast } from "@/hooks/use-toast";
@@ -59,6 +61,11 @@ const CircuitDetail = () => {
     navigate("/reservation");
   };
   
+  // Formatage du prix en Ariary
+  const formatAriary = (amount: number): string => {
+    return amount.toLocaleString('fr-FR') + ' Ar';
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -80,38 +87,106 @@ const CircuitDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-8">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Description</h2>
-              <p className="text-gray-700">{circuit.longDescription}</p>
-            </div>
+            <Tabs defaultValue="description" className="w-full">
+              <TabsList className="w-full grid grid-cols-3">
+                <TabsTrigger value="description">Description</TabsTrigger>
+                <TabsTrigger value="programme">Programme</TabsTrigger>
+                <TabsTrigger value="infos">Infos pratiques</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="description" className="mt-6 space-y-6">
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">À propos de ce circuit</h2>
+                  <p className="text-gray-700">{circuit.longDescription}</p>
+                </div>
+                
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">Destinations visitées</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {circuit.destinations.map((destination, index) => (
+                      <Badge key={index} variant="outline" className="bg-adr-50 text-adr-900 px-3 py-1">
+                        {destination}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="programme" className="mt-6">
+                <h2 className="text-2xl font-semibold mb-4">Programme détaillé</h2>
+                <div className="space-y-4">
+                  <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
+                    <h3 className="font-medium text-lg">Jour 1-2 : Accueil et découverte</h3>
+                    <p className="text-gray-600 mt-2">Accueil à l'aéroport d'Antananarivo, transfert à l'hôtel et briefing sur le déroulement du séjour. Introduction à la culture malgache et présentation du programme. Premier contact avec la capitale.</p>
+                  </div>
+                  
+                  <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
+                    <h3 className="font-medium text-lg">Jour 3-{Math.round(circuit.duration * 0.6)} : Exploration des sites</h3>
+                    <p className="text-gray-600 mt-2">Découverte des destinations principales du circuit. Immersion dans les paysages variés de Madagascar, rencontres avec les populations locales et observation de la faune et flore emblématiques de l'île.</p>
+                  </div>
+                  
+                  <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
+                    <h3 className="font-medium text-lg">Jour {Math.round(circuit.duration * 0.6) + 1}-{circuit.duration} : Dernières découvertes</h3>
+                    <p className="text-gray-600 mt-2">Poursuite de l'exploration avec des activités adaptées aux groupes. Temps libre pour profiter des derniers moments, achats de souvenirs artisanaux auprès des communautés locales. Transfert à l'aéroport et vol retour.</p>
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="infos" className="mt-6">
+                <h2 className="text-2xl font-semibold mb-4">Informations pratiques</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-medium text-lg">Inclus dans le prix</h3>
+                      <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                        <li>Transport en véhicule adapté aux groupes</li>
+                        <li>Guide francophone spécialisé Madagascar</li>
+                        <li>Hébergement en pension complète</li>
+                        <li>Entrées des sites et parcs nationaux</li>
+                        <li>Activités mentionnées au programme</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg">Spécial groupes</h3>
+                      <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                        <li>Accompagnateur dédié pour les groupes scolaires</li>
+                        <li>Logements adaptés aux familles nombreuses</li>
+                        <li>Activités personnalisables selon l'âge</li>
+                        <li>Réduction pour les grands groupes</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-medium text-lg">Non inclus</h3>
+                      <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                        <li>Vols internationaux</li>
+                        <li>Assurance voyage</li>
+                        <li>Dépenses personnelles</li>
+                        <li>Pourboires</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg">Conseils pratiques</h3>
+                      <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                        <li>Passeport valide 6 mois après retour</li>
+                        <li>Visa obligatoire (obtention à l'arrivée)</li>
+                        <li>Vaccins recommandés: consulter un médecin</li>
+                        <li>Monnaie : Ariary (1€ ≈ 4500 Ar)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+            </Tabs>
             
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Destinations</h2>
-              <div className="flex flex-wrap gap-2">
-                {circuit.destinations.map((destination, index) => (
-                  <Badge key={index} variant="outline" className="bg-adr-50 text-adr-900 px-3 py-1">
-                    {destination}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Programme</h2>
-              <div className="space-y-4">
-                <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
-                  <h3 className="font-medium text-lg">Jour 1-2 : Départ et arrivée</h3>
-                  <p className="text-gray-600 mt-2">Accueil à l'aéroport, transfert à l'hôtel et briefing sur le déroulement du séjour. Temps libre pour se reposer et s'acclimater.</p>
-                </div>
-                <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
-                  <h3 className="font-medium text-lg">Jour 3-{circuit.duration - 3} : Exploration</h3>
-                  <p className="text-gray-600 mt-2">Découverte des sites emblématiques, immersion dans la culture locale, et expériences authentiques à travers les différentes destinations.</p>
-                </div>
-                <div className="bg-white shadow rounded-lg p-4 border border-gray-100">
-                  <h3 className="font-medium text-lg">Jour {circuit.duration - 1}-{circuit.duration} : Détente et retour</h3>
-                  <p className="text-gray-600 mt-2">Temps libre pour profiter des derniers moments, shopping pour les souvenirs, et préparation au retour. Transfert à l'aéroport et vol retour.</p>
-                </div>
-              </div>
+            <div className="mt-8">
+              <h2 className="text-2xl font-semibold mb-4">Calculez votre devis personnalisé</h2>
+              <QuoteCalculator />
             </div>
           </div>
           
@@ -121,7 +196,7 @@ const CircuitDetail = () => {
               <CardContent className="p-6 space-y-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-adr-900">
-                    {circuit.price.toLocaleString()} €
+                    {formatAriary(circuit.price)}
                   </div>
                   <div className="text-sm text-muted-foreground">par personne</div>
                 </div>
@@ -173,7 +248,7 @@ const CircuitDetail = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between font-medium">
                     <span>Prix total:</span>
-                    <span>{(circuit.price * personCount).toLocaleString()} €</span>
+                    <span>{formatAriary(circuit.price * personCount)}</span>
                   </div>
                   
                   <Button 
@@ -186,7 +261,7 @@ const CircuitDetail = () => {
                 </div>
                 
                 <div className="text-sm text-center text-muted-foreground pt-4">
-                  Pas de frais de réservation
+                  Réduction pour les groupes de 10+
                 </div>
               </CardContent>
             </Card>
