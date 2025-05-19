@@ -13,8 +13,14 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-40">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-40 relative">
+      {/* Image de fond du Sprinter */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-10 z-0"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562497910-1e7b34caa18b?q=80&w=1470&auto=format&fit=crop')" }}
+      />
+      
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         <Link to="/" className="flex items-center">
           <Logo />
         </Link>

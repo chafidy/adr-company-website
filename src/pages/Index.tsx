@@ -15,12 +15,12 @@ const Index = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       
-      {/* Hero section */}
-      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1571151329241-3493fb2de11b?q=80&w=1470&auto=format&fit=crop')" }}>
+      {/* Hero section - Mise à jour de l'image de fond */}
+      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586442886903-1ce7333409ce?q=80&w=1470&auto=format&fit=crop')" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="relative container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Découvrez Madagascar avec ADR TRAVEL
+            Découvrez Madagascar avec ADR COMPANY
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl animate-fade-in animate-delay-100">
             Voyages organisés pour groupes, écoles et familles vers la Grande Île
@@ -102,7 +102,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About section */}
+      {/* About section - Mise à jour de l'image des baobabs */}
       <section className="section-container">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -111,7 +111,7 @@ const Index = () => {
                 Votre spécialiste de Madagascar
               </h2>
               <p className="text-lg mb-6 text-muted-foreground">
-                ADR TRAVEL vous fait découvrir les trésors cachés de Madagascar depuis plus de 15 ans. Notre expertise des voyages en groupe nous permet de vous offrir une expérience unique.
+                ADR COMPANY vous fait découvrir les trésors cachés de Madagascar depuis plus de 15 ans. Notre expertise des voyages en groupe nous permet de vous offrir une expérience unique.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
@@ -135,7 +135,7 @@ const Index = () => {
             </div>
             <div className="order-1 md:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1541959377946-2f7a6042cd88?q=80&w=1470&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1591432799456-b2c2c6b949e3?q=80&w=1470&auto=format&fit=crop" 
                 alt="Baobabs à Madagascar" 
                 className="w-full h-auto rounded-lg shadow-lg"
               />
