@@ -17,7 +17,7 @@ const Header = () => {
       {/* Image de fond du Sprinter */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-10 z-0"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562497910-1e7b34caa18b?q=80&w=1470&auto=format&fit=crop')" }}
+        style={{ backgroundImage: "url('/lovable-uploads/9becc016-758e-46b1-a615-4597575cf80d.png')" }}
       />
       
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">

@@ -16,7 +16,7 @@ const Index = () => {
       <Header />
       
       {/* Hero section - Mise à jour de l'image de fond */}
-      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586442886903-1ce7333409ce?q=80&w=1470&auto=format&fit=crop')" }}>
+      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('/lovable-uploads/43b2c832-7a2b-485a-b1db-1c823a63cbf2.png')" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="relative container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
@@ -102,7 +102,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About section - Mise à jour de l'image des baobabs */}
+      {/* About section - Mise à jour de l'image du Sprinter avec personne sur le toit */}
       <section className="section-container">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -135,8 +135,8 @@ const Index = () => {
             </div>
             <div className="order-1 md:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1591432799456-b2c2c6b949e3?q=80&w=1470&auto=format&fit=crop" 
-                alt="Baobabs à Madagascar" 
+                src="/lovable-uploads/744b565e-6758-458c-98d5-88ccd0ed7046.png" 
+                alt="Sprinter à Madagascar avec explorateur" 
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
@@ -189,7 +189,7 @@ const Index = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-4">
-                "Notre association a choisi ADR Travel pour un séjour solidaire à Madagascar. Le circuit mixant découvertes culturelles et actions sur le terrain était parfaitement équilibré. Une expérience riche en émotions."
+                "Notre association a choisi ADR COMPANY pour un séjour solidaire à Madagascar. Le circuit mixant découvertes culturelles et actions sur le terrain était parfaitement équilibré. Une expérience riche en émotions."
               </p>
               <div className="font-semibold">- Association Mada-Actions</div>
             </div>
