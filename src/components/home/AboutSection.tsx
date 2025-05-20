@@ -35,7 +35,7 @@ const AboutSection = () => {
               </Link>
             </Button>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 flex items-center justify-center">
             <img 
               src="/lovable-uploads/06f5544e-1eb8-413c-83f9-5622b0db093a.png" 
               alt="Flotte de véhicules de transport à Madagascar" 
@@ -49,4 +49,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-

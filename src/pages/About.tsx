@@ -25,12 +25,12 @@ const About = () => {
         </div>
       </section>
       
-      {/* Mission - Modified to use the uploaded Logo */}
+      {/* Mission - Modified to match logo height with text */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center items-center">
-              <div className="bg-black p-8 rounded-lg shadow-lg flex justify-center items-center">
+            <div className="flex justify-center items-center h-full">
+              <div className="bg-black p-8 rounded-lg shadow-lg flex justify-center items-center h-full">
                 <img 
                   src="/lovable-uploads/77657e50-5ff1-4ee0-ba50-3a82ac0694af.png" 
                   alt="ADR COMPANY Logo" 
