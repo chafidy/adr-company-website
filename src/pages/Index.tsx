@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,32 +15,34 @@ const Index = () => {
       <Header />
       
       {/* Hero section - Mise à jour de l'image de fond */}
-      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('/lovable-uploads/43b2c832-7a2b-485a-b1db-1c823a63cbf2.png')" }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <section className="relative h-[80vh] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/lovable-uploads/533287da-d4f2-45db-aa7f-c4a7eee7929d.png')" }}>
+        <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="relative container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Découvrez Madagascar avec ADR COMPANY
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl animate-fade-in animate-delay-100">
-            Voyages organisés pour groupes, écoles et familles vers la Grande Île
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animate-delay-200">
-            <Button asChild size="lg" className="text-lg bg-adr-900 hover:bg-adr-800">
-              <Link to="/circuits">
-                Nos circuits à Madagascar
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg bg-transparent border-white text-white hover:bg-white hover:text-adr-900">
-              <Link to="/contact">
-                Demander un devis
-              </Link>
-            </Button>
+          <div className="max-w-4xl backdrop-blur-sm bg-black/20 p-6 rounded-lg border border-white/10">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-white drop-shadow-lg">
+              Découvrez Madagascar avec ADR COMPANY
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in animate-delay-100 text-white/90 drop-shadow-md">
+              Voyages organisés pour groupes, écoles et familles vers la Grande Île
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-200">
+              <Button asChild size="lg" className="text-lg bg-adr-900 hover:bg-adr-800">
+                <Link to="/circuits">
+                  Nos circuits à Madagascar
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-lg bg-transparent border-white text-white hover:bg-white hover:text-adr-900">
+                <Link to="/contact">
+                  Demander un devis
+                </Link>
+              </Button>
+            </div>
           </div>
           <a 
             href="#featured" 
             className="absolute bottom-8 flex items-center justify-center flex-col opacity-80 hover:opacity-100 transition-opacity"
           >
-            <span className="mb-2 text-sm">Découvrir</span>
+            <span className="mb-2 text-sm font-semibold bg-black/30 px-3 py-1 rounded-full">Découvrir</span>
             <ArrowDown className="animate-bounce" />
           </a>
         </div>
@@ -102,7 +103,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About section - Mise à jour de l'image du Sprinter avec personne sur le toit */}
+      {/* About section */}
       <section className="section-container">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
