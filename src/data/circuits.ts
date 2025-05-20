@@ -43,10 +43,10 @@ export const circuits: Circuit[] = [
     title: "Tsingy de Bemaraha",
     description: "Explorez le labyrinthe de pierre classé au patrimoine mondial",
     longDescription: "Les Tsingy de Bemaraha constituent l'une des merveilles naturelles les plus impressionnantes de Madagascar et sont classés au patrimoine mondial de l'UNESCO. Ce circuit vous emmène à la découverte de ces formations calcaires uniques, véritables cathédrales de pierre formant un labyrinthe spectaculaire. Vous traverserez des ponts suspendus, explorerez des grottes cachées et admirerez une biodiversité exceptionnelle avec de nombreuses espèces endémiques. Une aventure parfaite pour les amateurs de randonnée et les amoureux de paysages extraordinaires, offrant des sensations fortes tout en garantissant votre sécurité grâce à nos guides expérimentés.",
-    image: "/lovable-uploads/ff44c0ca-da9c-4c81-8247-ea7dcb350e8b.png",
+    image: "/lovable-uploads/d76f6bd8-a3e8-472f-9cff-f1548bc7bce3.png",
     price: 2800000,
     duration: 12,
-    featured: false,
+    featured: true,
     destinations: ["Antananarivo", "Morondava", "Bekopaka", "Tsingy de Bemaraha", "Kirindy"],
     departureDates: ["2023-06-05", "2023-07-20", "2023-08-25", "2023-10-05"]
   },
@@ -106,7 +106,7 @@ export const circuits: Circuit[] = [
     image: "/lovable-uploads/734fb757-c835-4f89-b15f-e88c8964f523.png",
     price: 2400000,
     duration: 9,
-    featured: false,
+    featured: true,
     destinations: ["Antananarivo", "Fianarantsoa", "Ranohira", "Parc National de l'Isalo", "Tuléar"],
     departureDates: ["2023-06-10", "2023-07-15", "2023-08-20", "2023-09-25"]
   }

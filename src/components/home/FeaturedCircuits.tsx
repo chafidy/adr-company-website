@@ -9,6 +9,9 @@ interface FeaturedCircuitsProps {
 }
 
 const FeaturedCircuits = ({ circuits }: FeaturedCircuitsProps) => {
+  // Nous limitons l'affichage à 6 circuits
+  const displayedCircuits = circuits.slice(0, 6);
+
   return (
     <section id="featured" className="section-container">
       <div className="text-center mb-12">
@@ -18,7 +21,7 @@ const FeaturedCircuits = ({ circuits }: FeaturedCircuitsProps) => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {circuits.map((circuit) => (
+        {displayedCircuits.map((circuit) => (
           <CircuitCard key={circuit.id} circuit={circuit} featured />
         ))}
       </div>
