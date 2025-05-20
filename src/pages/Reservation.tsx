@@ -91,6 +91,11 @@ const Reservation = () => {
     return <div>Chargement...</div>;
   }
   
+  // Formatage du prix en Ariary
+  const formatAriary = (amount: number): string => {
+    return amount.toLocaleString('fr-FR') + ' Ar';
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -175,13 +180,13 @@ const Reservation = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Prix par personne</span>
-                    <span>{(reservationData.totalAmount / reservationData.personCount).toLocaleString()} €</span>
+                    <span>{formatAriary(reservationData.totalAmount / reservationData.personCount)}</span>
                   </div>
                 </div>
                 
                 <div className="flex justify-between font-semibold text-lg">
                   <span>Total</span>
-                  <span>{reservationData.totalAmount.toLocaleString()} €</span>
+                  <span>{formatAriary(reservationData.totalAmount)}</span>
                 </div>
               </CardContent>
             </Card>

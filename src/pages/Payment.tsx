@@ -105,6 +105,11 @@ const Payment = () => {
     return <div>Chargement...</div>;
   }
   
+  // Formatage du prix en Ariary
+  const formatAriary = (amount: number): string => {
+    return amount.toLocaleString('fr-FR') + ' Ar';
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -127,7 +132,7 @@ const Payment = () => {
                     <li>Ouvrez votre application Mobile Money sur votre téléphone</li>
                     <li>Sélectionnez "Transfert d'argent"</li>
                     <li>Entrez le numéro: <span className="font-semibold">+225 XX XX XX XX</span></li>
-                    <li>Entrez le montant: <span className="font-semibold">{reservation.totalAmount.toLocaleString()} €</span></li>
+                    <li>Entrez le montant: <span className="font-semibold">{formatAriary(reservation.totalAmount)}</span></li>
                     <li>Confirmez le paiement avec votre code PIN</li>
                     <li>Conservez le code de référence de la transaction</li>
                   </ul>
@@ -249,7 +254,7 @@ const Payment = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Prix par personne</span>
-                    <span>{(reservation.totalAmount / reservation.personCount).toLocaleString()} €</span>
+                    <span>{formatAriary(reservation.totalAmount / reservation.personCount)}</span>
                   </div>
                 </div>
                 
@@ -257,7 +262,7 @@ const Payment = () => {
                 
                 <div className="flex justify-between font-semibold text-lg">
                   <span>Total à payer</span>
-                  <span>{reservation.totalAmount.toLocaleString()} €</span>
+                  <span>{formatAriary(reservation.totalAmount)}</span>
                 </div>
               </CardContent>
             </Card>

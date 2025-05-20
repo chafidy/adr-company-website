@@ -1,5 +1,6 @@
 
 import QuoteCalculator from "@/components/QuoteCalculator";
+import { Circle } from "lucide-react";
 
 const QuoteCalculatorSection = () => {
   return (
@@ -15,15 +16,15 @@ const QuoteCalculatorSection = () => {
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Organisation de voyages pour écoles et établissements éducatifs</span>
               </li>
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Séjours adaptés pour les groupes familiaux de toutes tailles</span>
               </li>
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Circuits sur mesure pour associations et entreprises</span>
               </li>
             </ul>
