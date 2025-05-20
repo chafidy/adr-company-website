@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Circle } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -16,15 +17,15 @@ const AboutSection = () => {
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Guides locaux expérimentés et francophones</span>
               </li>
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Véhicules adaptés aux groupes et aux pistes malgaches</span>
               </li>
               <li className="flex items-start">
-                <span className="bg-adr-900 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+                <Circle className="h-5 w-5 text-adr-900 mr-3 mt-1 flex-shrink-0" fill="currentColor" />
                 <span>Assistance 24/7 pendant tout votre séjour</span>
               </li>
             </ul>

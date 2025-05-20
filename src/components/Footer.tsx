@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} ADR TRAVEL. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} ADR COMPANY. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
