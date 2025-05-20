@@ -65,9 +65,14 @@ const CircuitsList = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       
-      {/* Hero */}
-      <section className="relative py-16 bg-adr-900 text-white">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero with new image */}
+      <section className="relative py-16 bg-adr-900 text-white" style={{
+        backgroundImage: "url('/lovable-uploads/8b4eb68e-6c1b-45f7-85bd-c2a970e82f7f.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Nos Circuits</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
             Découvrez notre sélection de circuits exceptionnels et trouvez votre prochaine destination

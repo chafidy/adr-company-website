@@ -57,9 +57,14 @@ const Contact = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       
-      {/* Hero */}
-      <section className="relative py-20 bg-adr-900 text-white">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero with new image */}
+      <section className="relative py-20 bg-adr-900 text-white" style={{
+        backgroundImage: "url('/lovable-uploads/1f7aa934-0e8d-424d-8207-430fc97bc81a.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Contactez-nous</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
             Notre équipe est à votre écoute pour répondre à toutes vos questions
