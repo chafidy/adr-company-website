@@ -136,7 +136,7 @@ const Contact = () => {
               </form>
             </div>
             
-            {/* Contact Info */}
+            {/* Contact Info - Updated with new address */}
             <div>
               <h2 className="text-2xl font-semibold mb-6">Nos coordonnées</h2>
               
@@ -145,8 +145,8 @@ const Contact = () => {
                   <MapPin className="text-adr-900 mt-1" />
                   <div>
                     <h3 className="font-medium">Adresse</h3>
-                    <p className="text-muted-foreground">123 Avenue Principale, Abidjan</p>
-                    <p className="text-muted-foreground">Côte d'Ivoire</p>
+                    <p className="text-muted-foreground">Antsirabe, Vakinakaratra</p>
+                    <p className="text-muted-foreground">Madagascar</p>
                   </div>
                 </div>
                 
@@ -187,9 +187,17 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* Map Placeholder */}
-              <div className="mt-8 h-72 bg-gray-200 rounded-lg flex items-center justify-center">
-                <p className="text-muted-foreground">Carte Google Maps ici</p>
+              {/* Google Maps - Updated with Antsirabe coordinates */}
+              <div className="mt-8 h-72 rounded-lg overflow-hidden border border-gray-200">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59515.56235570202!2d46.986632696303336!3d-19.866246099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21ec8e1ea815587f%3A0xed740c0a17490fbb!2sAntsirabe%2C%20Madagascar!5e0!3m2!1sfr!2sus!4v1715843518580!5m2!1sfr!2sus" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
             </div>
           </div>

@@ -25,13 +25,17 @@ const About = () => {
         </div>
       </section>
       
-      {/* Mission - Modified to use the Logo */}
+      {/* Mission - Modified to use the uploaded Logo */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center items-center">
-              <div className="bg-adr-50 p-8 rounded-lg shadow-lg flex justify-center items-center">
-                <Logo className="scale-[2.5]" />
+              <div className="bg-black p-8 rounded-lg shadow-lg flex justify-center items-center">
+                <img 
+                  src="/lovable-uploads/77657e50-5ff1-4ee0-ba50-3a82ac0694af.png" 
+                  alt="ADR COMPANY Logo" 
+                  className="max-w-full h-auto"
+                />
               </div>
             </div>
             <div>
