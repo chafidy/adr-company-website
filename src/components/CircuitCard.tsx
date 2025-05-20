@@ -4,7 +4,6 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { formatAriary } from "@/utils/formatCurrency";
 
 interface CircuitCardProps {
   circuit: Circuit;
@@ -12,6 +11,11 @@ interface CircuitCardProps {
 }
 
 const CircuitCard = ({ circuit, featured }: CircuitCardProps) => {
+  // Formatage du prix en Ariary
+  const formatAriary = (amount: number): string => {
+    return amount.toLocaleString('fr-FR') + ' Ar';
+  };
+
   return (
     <Card className={`overflow-hidden h-full flex flex-col ${featured ? 'border-adr-200 shadow-lg' : ''}`}>
       <div className="relative h-48 overflow-hidden">
