@@ -12,7 +12,7 @@ const QuoteCalculatorSection = () => {
               Calculez votre devis en ligne
             </h2>
             <p className="text-lg mb-6 text-muted-foreground">
-              Spécialistes des voyages en groupe à Madagascar, nous vous proposons un outil simple pour estimer le coût de votre aventure.
+              Spécialistes des voyages en groupe à Madagascar, nous vous proposons un outil simple pour estimer le coût de votre aventure en Ariary.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">

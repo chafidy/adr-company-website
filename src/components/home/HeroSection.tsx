@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-[80vh] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/lovable-uploads/92283851-ccbb-4d65-b22e-fdaebf636e2e.png')" }}>
+    <section className="relative h-[80vh] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/lovable-uploads/fc11a08f-7dae-4d4b-b399-825bb63eafbf.png')" }}>
       <div className="absolute inset-0 bg-black bg-opacity-30" />
       <div className="relative container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white">
         <div className="max-w-4xl p-6 rounded-lg border border-white/10">

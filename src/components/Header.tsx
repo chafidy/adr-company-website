@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // Par défaut, on considère que l'utilisateur n'est pas admin
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,11 +40,14 @@ const Header = () => {
           <Link to="/contact" className="font-medium text-gray-700 hover:text-adr-900 transition-colors">
             Contact
           </Link>
-          <Button asChild variant="default" className="bg-adr-900 hover:bg-adr-800">
-            <Link to="/admin">
-              Espace Admin
-            </Link>
-          </Button>
+          {/* Bouton Admin visible uniquement si l'utilisateur est admin */}
+          {isAdmin && (
+            <Button asChild variant="default" className="bg-adr-900 hover:bg-adr-800">
+              <Link to="/admin">
+                Espace Admin
+              </Link>
+            </Button>
+          )}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -83,11 +87,14 @@ const Header = () => {
               >
                 Contact
               </Link>
-              <Button asChild variant="default" className="bg-adr-900 hover:bg-adr-800 w-full">
-                <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
-                  Espace Admin
-                </Link>
-              </Button>
+              {/* Bouton Admin visible uniquement si l'utilisateur est admin dans le menu mobile */}
+              {isAdmin && (
+                <Button asChild variant="default" className="bg-adr-900 hover:bg-adr-800 w-full">
+                  <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
+                    Espace Admin
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         )}

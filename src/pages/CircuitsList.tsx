@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,26 +9,57 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Circuit } from "@/types";
 import { circuits } from "@/data/circuits";
+import { toast } from "@/hooks/use-toast";
 
 const CircuitsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000000]);
   const [durationFilter, setDurationFilter] = useState<number | null>(null);
+  const [filteredCircuits, setFilteredCircuits] = useState<Circuit[]>(circuits);
   
-  const filteredCircuits = circuits.filter((circuit) => {
-    // Search query filter
-    const matchesSearch = circuit.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      circuit.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      circuit.destinations.some(dest => dest.toLowerCase().includes(searchQuery.toLowerCase()));
+  // Formatage du prix en Ariary
+  const formatAriary = (amount: number): string => {
+    return amount.toLocaleString('fr-FR') + ' Ar';
+  };
+  
+  // Appliquer les filtres chaque fois que les valeurs changent
+  useEffect(() => {
+    const filtered = circuits.filter((circuit) => {
+      // Search query filter
+      const matchesSearch = circuit.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        circuit.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        circuit.destinations.some(dest => dest.toLowerCase().includes(searchQuery.toLowerCase()));
+      
+      // Price range filter
+      const matchesPrice = circuit.price >= priceRange[0] && circuit.price <= priceRange[1];
+      
+      // Duration filter
+      const matchesDuration = durationFilter ? circuit.duration <= durationFilter : true;
+      
+      return matchesSearch && matchesPrice && matchesDuration;
+    });
     
-    // Price range filter
-    const matchesPrice = circuit.price >= priceRange[0] && circuit.price <= priceRange[1];
+    setFilteredCircuits(filtered);
     
-    // Duration filter
-    const matchesDuration = durationFilter ? circuit.duration <= durationFilter : true;
-    
-    return matchesSearch && matchesPrice && matchesDuration;
-  });
+    // Afficher un toast si aucun circuit ne correspond aux critères
+    if (filtered.length === 0 && (searchQuery || durationFilter || priceRange[0] > 0 || priceRange[1] < 5000000)) {
+      toast({
+        title: "Aucun résultat",
+        description: "Essayez de modifier vos critères de recherche",
+      });
+    }
+  }, [searchQuery, priceRange, durationFilter]);
+
+  // Fonction pour réinitialiser les filtres
+  const resetFilters = () => {
+    setSearchQuery("");
+    setPriceRange([0, 5000000]);
+    setDurationFilter(null);
+    toast({
+      title: "Filtres réinitialisés",
+      description: "Tous les circuits sont affichés",
+    });
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -64,17 +95,17 @@ const CircuitsList = () => {
             <Separator />
             
             <div>
-              <h3 className="font-semibold text-lg mb-4">Prix</h3>
+              <h3 className="font-semibold text-lg mb-4">Prix (Ariary)</h3>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>{priceRange[0]}€</span>
-                  <span>{priceRange[1]}€</span>
+                  <span>{formatAriary(priceRange[0])}</span>
+                  <span>{formatAriary(priceRange[1])}</span>
                 </div>
                 <input 
                   type="range" 
                   min="0" 
-                  max="5000" 
-                  step="100"
+                  max="5000000" 
+                  step="100000"
                   value={priceRange[1]}
                   onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
                   className="w-full"
@@ -119,11 +150,7 @@ const CircuitsList = () => {
             <Button 
               variant="outline" 
               className="w-full"
-              onClick={() => {
-                setSearchQuery("");
-                setPriceRange([0, 5000]);
-                setDurationFilter(null);
-              }}
+              onClick={resetFilters}
             >
               Réinitialiser les filtres
             </Button>
