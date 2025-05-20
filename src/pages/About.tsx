@@ -4,18 +4,16 @@ import { Circle } from "lucide-react";
 import ImageGallery from "@/components/about/ImageGallery";
 import Logo from "@/components/Logo";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
 const About = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen">
       <Header />
       
       {/* Hero with new image */}
       <section className="relative py-20 bg-adr-900 text-white" style={{
-        backgroundImage: "url('/lovable-uploads/65f74de7-6570-48c3-af5b-f2da92c6734a.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}>
+      backgroundImage: "url('/lovable-uploads/65f74de7-6570-48c3-af5b-f2da92c6734a.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}>
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">À propos de ADR Travel</h1>
@@ -31,21 +29,17 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center items-center h-full">
               <div className="bg-black p-8 rounded-lg shadow-lg flex justify-center items-center h-full">
-                <img 
-                  src="/lovable-uploads/77657e50-5ff1-4ee0-ba50-3a82ac0694af.png" 
-                  alt="ADR COMPANY Logo" 
-                  className="max-w-full h-auto"
-                />
+                <img src="/lovable-uploads/77657e50-5ff1-4ee0-ba50-3a82ac0694af.png" alt="ADR COMPANY Logo" className="max-w-full h-auto" />
               </div>
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6">Notre mission</h2>
-              <p className="text-lg mb-6 text-muted-foreground">
-                Chez ADR Travel, notre mission est de créer des expériences de voyage inoubliables qui enrichissent la vie de nos clients et leur permettent de découvrir le monde avec confiance et authenticité.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                Nous sommes passionnés par le voyage et nous nous engageons à offrir un service personnalisé de haute qualité, en mettant l'accent sur la découverte culturelle, la durabilité et le respect des communautés locales.
-              </p>
+              <p className="text-lg mb-6 text-muted-foreground">Chez ADR Company, nous croyons que voyager va bien au-delà du simple déplacement : c’est une occasion unique de grandir, de s’émerveiller et de se connecter au monde.
+Notre mission est de créer des expériences de voyage inoubliables, conçues pour enrichir la vie de nos clients et leur permettre de découvrir le monde avec confiance, authenticité et sérénité.</p>
+              <p className="text-lg text-muted-foreground">Passionnés par l’art du voyage, nous nous engageons à offrir un accompagnement personnalisé de haute qualité, adapté aux envies et aux besoins de chacun.
+Nous mettons un point d'honneur à promouvoir la découverte culturelle, à valoriser les rencontres humaines et à encourager un tourisme durable et respectueux des communautés locales.
+
+Avec ADR Company, partez l’esprit libre et le cœur ouvert : chaque destination devient une aventure qui vous ressemble.</p>
             </div>
           </div>
         </div>
@@ -103,11 +97,9 @@ const About = () => {
                 <div>
                   <h3 className="text-lg font-semibold">Rakoto Solofo</h3>
                   <div className="flex mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    {[1, 2, 3, 4, 5].map(star => <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                      </svg>
-                    ))}
+                      </svg>)}
                   </div>
                 </div>
               </div>
@@ -125,11 +117,9 @@ const About = () => {
                 <div>
                   <h3 className="text-lg font-semibold">Marie Ranaivo</h3>
                   <div className="flex mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    {[1, 2, 3, 4, 5].map(star => <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                      </svg>
-                    ))}
+                      </svg>)}
                   </div>
                 </div>
               </div>
@@ -147,11 +137,9 @@ const About = () => {
                 <div>
                   <h3 className="text-lg font-semibold">Jean Andriamasy</h3>
                   <div className="flex mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    {[1, 2, 3, 4, 5].map(star => <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                      </svg>
-                    ))}
+                      </svg>)}
                   </div>
                 </div>
               </div>
@@ -191,8 +179,6 @@ const About = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
