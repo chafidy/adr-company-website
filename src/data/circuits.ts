@@ -103,7 +103,7 @@ export const circuits: Circuit[] = [
     title: "Parc National de l'Isalo",
     description: "Randonnées spectaculaires dans le Grand Canyon malgache",
     longDescription: "Le Parc National de l'Isalo, souvent surnommé le 'Grand Canyon malgache', est un massif ruiniforme spectaculaire composé de formations de grès sculptées par l'érosion. Ce circuit vous emmène à travers des canyons profonds, des piscines naturelles d'eau cristalline, des cascades rafraîchissantes et des paysages à couper le souffle. Vous aurez l'occasion d'observer de nombreuses espèces endémiques, dont plusieurs types de lémuriens, dans leur habitat naturel. Les randonnées guidées vous permettront de découvrir la fenêtre de l'Isalo, la piscine noire et bleue, et la cascade des nymphes, parmi d'autres merveilles naturelles. Un incontournable pour les amateurs de trekking et les photographes paysagistes.",
-    image: "/lovable-uploads/92283851-ccbb-4d65-b22e-fdaebf636e2e.png",
+    image: "/lovable-uploads/734fb757-c835-4f89-b15f-e88c8964f523.png",
     price: 2400000,
     duration: 9,
     featured: false,
