@@ -57,6 +57,12 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
+        // Nouvelles couleurs de marque
+        'primary-brand': '#123458',
+        'secondary-brand': '#D4C9BE',
+        'light-brand': '#F1EFEC',
+        'dark-brand': '#030303',
+        // Conservation de la palette adr pour la rétrocompatibilité
         adr: {
           DEFAULT: '#000000',
           50: '#f2f2f2',
