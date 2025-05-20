@@ -52,7 +52,7 @@ export const circuits: Circuit[] = [
   },
   {
     id: "circuit-005",
-    title: "Île Sainte-Marie et baleines",
+    title: "Rova Manjakamiadana, Palais des Reines",
     description: "Observation des baleines et détente sur l'île aux pirates",
     longDescription: "Ce séjour sur l'île Sainte-Marie (Nosy Boraha) vous plonge dans l'histoire fascinante des pirates qui y établirent leur repaire au 17ème siècle, tout en vous offrant un spectacle naturel extraordinaire. De juillet à septembre, assistez à la migration des baleines à bosse qui viennent mettre bas dans les eaux chaudes du canal de Sainte-Marie. Profitez également des magnifiques plages de sable blanc et des fonds marins exceptionnels pour la plongée. Un circuit parfait pour les familles et les groupes recherchant un équilibre entre découverte et farniente.",
     image: "/lovable-uploads/f6a4353a-95bf-46d4-8335-0d8e3d675257.png",
@@ -75,3 +75,4 @@ export const circuits: Circuit[] = [
     departureDates: ["2023-07-05", "2023-08-20", "2023-10-10", "2023-11-15"]
   }
 ];
+

@@ -37,8 +37,8 @@ const AboutSection = () => {
           </div>
           <div className="order-1 md:order-2">
             <img 
-              src="/lovable-uploads/744b565e-6758-458c-98d5-88ccd0ed7046.png" 
-              alt="Sprinter à Madagascar avec explorateur" 
+              src="/lovable-uploads/06f5544e-1eb8-413c-83f9-5622b0db093a.png" 
+              alt="Flotte de véhicules de transport à Madagascar" 
               className="w-full h-auto rounded-lg shadow-lg"
             />
           </div>
@@ -49,3 +49,4 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
+
