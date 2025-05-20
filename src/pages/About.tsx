@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Circle } from "lucide-react";
 import ImageGallery from "@/components/about/ImageGallery";
+import Logo from "@/components/Logo";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About = () => {
   return (
@@ -23,16 +25,14 @@ const About = () => {
         </div>
       </section>
       
-      {/* Mission */}
+      {/* Mission - Modified to use the Logo */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1470&auto=format&fit=crop" 
-                alt="Notre mission" 
-                className="rounded-lg shadow-lg"
-              />
+            <div className="flex justify-center items-center">
+              <div className="bg-adr-50 p-8 rounded-lg shadow-lg flex justify-center items-center">
+                <Logo className="scale-[2.5]" />
+              </div>
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6">Notre mission</h2>
@@ -85,45 +85,75 @@ const About = () => {
         </div>
       </section>
       
-      {/* Paradise Locations */}
+      {/* Testimonials - Replacing Paradise Locations */}
       <section className="py-16 bg-adr-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Des destinations paradisiaques</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="overflow-hidden rounded-lg shadow-lg">
-              <img 
-                src="/lovable-uploads/47ed232c-0cc8-4097-b56c-9ca1bba7dd10.png" 
-                alt="Plage paradisiaque" 
-                className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4 bg-white">
-                <h3 className="text-xl font-semibold mb-2">Plages de rêve</h3>
-                <p className="text-muted-foreground">Des plages de sable blanc bordées d'eaux turquoise vous attendent pour des moments de détente inoubliables.</p>
+          <h2 className="text-3xl font-bold mb-12 text-center">Témoignages de nos clients</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <Avatar className="h-12 w-12 mr-4">
+                  <AvatarImage src="/lovable-uploads/1f7aa934-0e8d-424d-8207-430fc97bc81a.png" alt="Client avatar" />
+                  <AvatarFallback>RS</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="text-lg font-semibold">Rakoto Solofo</h3>
+                  <div className="flex mt-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                </div>
               </div>
+              <p className="text-muted-foreground">
+                "Notre voyage à Madagascar a été une expérience extraordinaire. Les plages étaient magnifiques et l'équipe d'ADR Travel a pris soin de chaque détail. Je recommande vivement!"
+              </p>
             </div>
             
-            <div className="overflow-hidden rounded-lg shadow-lg">
-              <img 
-                src="/lovable-uploads/9becc016-758e-46b1-a615-4597575cf80d.png" 
-                alt="Faune et flore" 
-                className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4 bg-white">
-                <h3 className="text-xl font-semibold mb-2">Biodiversité unique</h3>
-                <p className="text-muted-foreground">Madagascar abrite une faune et une flore exceptionnelles qui raviront les amoureux de la nature.</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <Avatar className="h-12 w-12 mr-4">
+                  <AvatarImage src="/lovable-uploads/92283851-ccbb-4d65-b22e-fdaebf636e2e.png" alt="Client avatar" />
+                  <AvatarFallback>MR</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="text-lg font-semibold">Marie Ranaivo</h3>
+                  <div className="flex mt-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                </div>
               </div>
+              <p className="text-muted-foreground">
+                "Les guides étaient exceptionnels et très attentionnés. Notre circuit à travers Madagascar nous a fait découvrir des paysages à couper le souffle et une culture fascinante."
+              </p>
             </div>
             
-            <div className="overflow-hidden rounded-lg shadow-lg">
-              <img 
-                src="/lovable-uploads/6e577f2f-8d30-4a18-9162-d513a8f7c107.png" 
-                alt="Coucher de soleil" 
-                className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4 bg-white">
-                <h3 className="text-xl font-semibold mb-2">Paysages à couper le souffle</h3>
-                <p className="text-muted-foreground">Des couchers de soleil spectaculaires sur des paysages variés vous laisseront des souvenirs impérissables.</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <Avatar className="h-12 w-12 mr-4">
+                  <AvatarImage src="/lovable-uploads/533287da-d4f2-45db-aa7f-c4a7eee7929d.png" alt="Client avatar" />
+                  <AvatarFallback>JA</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="text-lg font-semibold">Jean Andriamasy</h3>
+                  <div className="flex mt-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                </div>
               </div>
+              <p className="text-muted-foreground">
+                "J'ai voyagé dans de nombreux pays, mais l'expérience avec ADR Travel à Madagascar a été vraiment unique. L'organisation était impeccable et les activités proposées parfaitement équilibrées."
+              </p>
             </div>
           </div>
         </div>
