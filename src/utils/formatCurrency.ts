@@ -7,3 +7,14 @@
 export const formatAriary = (amount: number): string => {
   return amount.toLocaleString('fr-FR') + ' Ar';
 };
+
+/**
+ * Convertit un montant d'euros en ariary (taux approximatif)
+ * @param euroAmount - Le montant en euros
+ * @returns Le montant converti en ariary
+ */
+export const convertEuroToAriary = (euroAmount: number): number => {
+  // Taux de conversion approximatif: 1 EUR ≈ 4500 Ar
+  const conversionRate = 4500;
+  return Math.round(euroAmount * conversionRate);
+};
