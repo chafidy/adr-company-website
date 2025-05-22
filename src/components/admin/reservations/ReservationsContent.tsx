@@ -1,13 +1,24 @@
 
 import ReservationCard from "./ReservationCard";
+import ReservationsLoading from "./ReservationsLoading";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ReservationsContentProps {
   reservations: any[];
   onUpdateStatus: (id: string, status: string) => void;
+  isLoading?: boolean;
 }
 
-const ReservationsContent = ({ reservations, onUpdateStatus }: ReservationsContentProps) => {
+const ReservationsContent = ({ 
+  reservations, 
+  onUpdateStatus, 
+  isLoading = false 
+}: ReservationsContentProps) => {
+  
+  if (isLoading) {
+    return <ReservationsLoading />;
+  }
+  
   return (
     <div className="space-y-6">
       {reservations.length > 0 ? (

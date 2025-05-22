@@ -1,8 +1,9 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, LayoutDashboard, Calendar, CreditCard, UserCircle, Settings, LogOut } from "lucide-react";
+import { RefreshCw, LayoutDashboard, Calendar, CreditCard, UserCircle, Settings, LogOut, Loader } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { Progress } from "@/components/ui/progress";
 import {
   SidebarProvider,
   Sidebar,
@@ -48,6 +49,19 @@ const AdminLayout = ({
   isLoading 
 }: AdminLayoutProps) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [tabChanging, setTabChanging] = useState(false);
+  
+  const handleTabChange = (tab: string) => {
+    if (tab === activeTab) return;
+    
+    setTabChanging(true);
+    
+    // Simulate tab change loading with a slight delay
+    setTimeout(() => {
+      setActiveTab(tab);
+      setTabChanging(false);
+    }, 300);
+  };
 
   return (
     <SidebarProvider defaultOpen={true} className="flex-grow">
@@ -63,25 +77,25 @@ const AdminLayout = ({
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton isActive={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')}>
+                  <SidebarMenuButton isActive={activeTab === 'dashboard'} onClick={() => handleTabChange('dashboard')}>
                     <LayoutDashboard className="size-4" />
                     <span>Tableau de bord</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton isActive={activeTab === 'reservations'} onClick={() => setActiveTab('reservations')}>
+                  <SidebarMenuButton isActive={activeTab === 'reservations'} onClick={() => handleTabChange('reservations')}>
                     <Calendar className="size-4" />
                     <span>Réservations</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton isActive={activeTab === 'payments'} onClick={() => setActiveTab('payments')}>
+                  <SidebarMenuButton isActive={activeTab === 'payments'} onClick={() => handleTabChange('payments')}>
                     <CreditCard className="size-4" />
                     <span>Paiements</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton isActive={activeTab === 'customers'} onClick={() => setActiveTab('customers')}>
+                  <SidebarMenuButton isActive={activeTab === 'customers'} onClick={() => handleTabChange('customers')}>
                     <UserCircle className="size-4" />
                     <span>Clients</span>
                   </SidebarMenuButton>
@@ -119,11 +133,21 @@ const AdminLayout = ({
                                             activeTab === 'payments' ? 'Paiements' : 'Clients'}</h1>
           <div className="flex gap-2">
             <Button variant="outline" onClick={onRefreshData} disabled={isLoading}>
-              <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
+              {isLoading ? (
+                <Loader className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <RefreshCw className="mr-2 h-4 w-4" />
+              )}
               Actualiser
             </Button>
           </div>
         </div>
+        
+        {tabChanging && (
+          <div className="mb-6">
+            <Progress value={70} className="h-1 animate-pulse" />
+          </div>
+        )}
         
         <StatCards stats={{...stats, reservationsCount: reservations.length}} />
         
@@ -134,16 +158,23 @@ const AdminLayout = ({
         {activeTab === 'reservations' && (
           <ReservationsContent 
             reservations={reservations} 
-            onUpdateStatus={onUpdateReservation} 
+            onUpdateStatus={onUpdateReservation}
+            isLoading={isLoading || tabChanging}
           />
         )}
         
         {activeTab === 'payments' && (
-          <PaymentsContent reservations={reservations} />
+          <PaymentsContent 
+            reservations={reservations}
+            isLoading={isLoading || tabChanging}
+          />
         )}
         
         {activeTab === 'customers' && (
-          <CustomersContent reservations={reservations} />
+          <CustomersContent 
+            reservations={reservations}
+            isLoading={isLoading || tabChanging}
+          />
         )}
       </SidebarInset>
     </SidebarProvider>

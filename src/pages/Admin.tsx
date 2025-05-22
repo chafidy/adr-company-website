@@ -37,23 +37,31 @@ const Admin = () => {
       
       setIsLoading(false);
       toast({ title: "Données actualisées", description: "Les dernières données ont été chargées" });
-    }, 1000);
+    }, 1500); // Increased timeout to better show loading animation
   };
   
   // Load reservations from localStorage
   useEffect(() => {
     if (isAuthenticated) {
-      const storedReservations = JSON.parse(localStorage.getItem("reservations") || "[]");
-      setReservations(storedReservations);
+      setIsLoading(true);
       
-      // Calculate stats from loaded data
-      if (storedReservations.length > 0) {
-        const calculatedStats = calculateStats(storedReservations);
-        setStats(calculatedStats);
-      } else {
-        // Generate sample data if none exists
-        refreshData();
-      }
+      // Simulate API call
+      setTimeout(() => {
+        const storedReservations = JSON.parse(localStorage.getItem("reservations") || "[]");
+        setReservations(storedReservations);
+        
+        // Calculate stats from loaded data
+        if (storedReservations.length > 0) {
+          const calculatedStats = calculateStats(storedReservations);
+          setStats(calculatedStats);
+        } else {
+          // Generate sample data if none exists
+          refreshData();
+          return; // Early return to avoid setting isLoading to false
+        }
+        
+        setIsLoading(false);
+      }, 1000);
     }
   }, [isAuthenticated]);
   
@@ -66,24 +74,31 @@ const Admin = () => {
   };
   
   const handleUpdateReservation = (id: string, status: string) => {
-    const updatedReservations = reservations.map((res) => {
-      if (res.id === id) {
-        return { ...res, paymentStatus: status };
-      }
-      return res;
-    });
+    setIsLoading(true);
     
-    setReservations(updatedReservations);
-    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
-    
-    // Update stats after changing payment status
-    const calculatedStats = calculateStats(updatedReservations);
-    setStats(calculatedStats);
-    
-    toast({
-      title: "Réservation mise à jour",
-      description: `Statut de paiement mis à jour: ${status}`,
-    });
+    // Simulate API call
+    setTimeout(() => {
+      const updatedReservations = reservations.map((res) => {
+        if (res.id === id) {
+          return { ...res, paymentStatus: status };
+        }
+        return res;
+      });
+      
+      setReservations(updatedReservations);
+      localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+      
+      // Update stats after changing payment status
+      const calculatedStats = calculateStats(updatedReservations);
+      setStats(calculatedStats);
+      
+      toast({
+        title: "Réservation mise à jour",
+        description: `Statut de paiement mis à jour: ${status}`,
+      });
+      
+      setIsLoading(false);
+    }, 800);
   };
   
   return (
