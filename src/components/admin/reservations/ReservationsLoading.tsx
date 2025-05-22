@@ -1,12 +1,15 @@
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
+import LoadingLogo from "@/components/LoadingLogo";
 
 const ReservationsLoading = () => {
   return (
     <div className="space-y-6">
+      <LoadingLogo className="mb-6 rounded-lg border" />
+      
       {[1, 2, 3].map((i) => (
-        <Card key={i}>
+        <Card key={i} className="animate-pulse">
           <CardContent className="p-6">
             <div className="flex flex-col space-y-3">
               <div className="flex justify-between">
